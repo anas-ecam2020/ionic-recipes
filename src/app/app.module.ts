@@ -11,9 +11,10 @@ import { RecipeComponent } from './recipe/recipe.component';
 import { RecipeAddComponent } from './recipe-add/recipe-add.component';
 import { RecipeEditComponent } from './recipe-edit/recipe-edit.component';
 import { from } from 'rxjs';
+import { RecipeDetailComponent } from './recipe-detail/recipe-detail.component';
 
 @NgModule({
-  declarations: [AppComponent, RecipeComponent, RecipeAddComponent, RecipeEditComponent],
+  declarations: [AppComponent, RecipeComponent, RecipeAddComponent, RecipeEditComponent, RecipeDetailComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
