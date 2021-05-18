@@ -64,4 +64,16 @@ export class RecipeComponent implements OnInit {
     this.recipe = recipe;
     this.show = true;
   }
+
+  deleteRecipe(id: number) {
+    this.rest.deleteRecipe(id).subscribe(
+      (response) => {
+        console.log(response);
+        this.ngOnInit();
+      },
+    err => {
+      console.log("Error");
+    }
+    )   
+  }
 }
