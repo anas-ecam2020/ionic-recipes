@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Recipes
+      Edit Recipe
     </ion-title>
     <ion-buttons slot="start">
       <ion-menu-button menu="main-menu"></ion-menu-button>
@@ -11,32 +11,68 @@
 
 
     <ion-content>
-      <h2>Recipe Edit</h2>
       <div>
-        <ion-label>Recipe Name :
-          <ion-input type="text" [(ngModel)]="recipe.title" placeholder="name"></ion-input>
-        </ion-label><br>
-        <ion-label>Recipe Category :
-          <ion-input type="text" [(ngModel)]="recipe.category.title" placeholder="category"></ion-input>
-        </ion-label><br>
-        <ion-label>Recipe Content :
-          <ion-input type="text" [(ngModel)]="recipe.content" placeholder="content"></ion-input>
-        </ion-label><br>
-        <ion-label>Recipe Image :
-          <ion-input type="text" [(ngModel)]="recipe.image" placeholder="image"></ion-input>
-        </ion-label><br>
-        <ion-label>Recipe Favorite :
-          <ion-input type="text" [(ngModel)]="recipe.favorite" placeholder="favorite"></ion-input>
-        </ion-label><br>
-        <ion-label>Recipe Time :
-          <ion-input type="number" [(ngModel)]="recipe.time" placeholder="time"></ion-input>
-        </ion-label><br>
-        <ion-label>Recipe Difficulty :
-          <ion-input type="text" [(ngModel)]="recipe.difficulty" placeholder="difficulty"></ion-input>
-        </ion-label><br>
-        <ion-label>Recipe Portions :
-          <ion-input type="number" [(ngModel)]="recipe.portions" placeholder="portions"></ion-input>
-        </ion-label><br>
+        <br>
+
+        <ion-item>
+          <ion-label>Recipe Name :</ion-label>
+        </ion-item>
+
+          <ion-input type="text" [(ngModel)]="recipe.title" placeholder="Recipe title"></ion-input>
+
+        <ion-item>
+          <ion-label>Recipe Category :</ion-label>
+        </ion-item>
+
+        <ion-select [(ngModel)]="recipe.category.title" multiple="false" cancelText="Cancel" okText="OK" placeholder="Select Category">
+          <ion-select-option type="text" value="Petit-déjeuner">Petit-déjeuner</ion-select-option>
+          <ion-select-option type="text" value="Déjeuner">Déjeuner</ion-select-option>
+          <ion-select-option type="text" value="Dîner">Dîner</ion-select-option>
+          <ion-select-option type="text" value="Brunch">Brunch</ion-select-option>
+          <ion-select-option type="text" value="Snacks">Snacks</ion-select-option>
+        </ion-select>
+
+        <ion-item>
+          <ion-label>Recipe Content :</ion-label>
+        </ion-item>
+
+        <ion-input type="text" [(ngModel)]="recipe.content" placeholder="Recipe Description"></ion-input>
+
+        <ion-item>
+          <ion-label>Recipe Image :</ion-label>
+        </ion-item>
+
+        <ion-input type="text" [(ngModel)]="recipe.image" placeholder="Recipe Image"></ion-input>
+
+        <ion-item>
+          <ion-label>Recipe Favorite :</ion-label>
+        </ion-item>
+
+        <ion-input type="text" [(ngModel)]="recipe.favorite" placeholder="Recipe Favorite"></ion-input>
+
+        <ion-item>
+          <ion-label>Recipe Time :</ion-label>
+        </ion-item>
+        
+        <ion-input type="number" [(ngModel)]="recipe.time" placeholder="Recipe Preparation Time"></ion-input>
+
+        <ion-item>
+          <ion-label>Recipe Difficulty :</ion-label>
+        </ion-item>
+
+        <ion-select [(ngModel)]="recipe.difficulty" multiple="false" cancelText="Cancel" okText="OK" placeholder="Select Difficulty">
+          <ion-select-option type="text" value="Facile">Easy</ion-select-option>
+          <ion-select-option type="text" value="Moyenne">Medium</ion-select-option>
+          <ion-select-option type="text" value="Difficile">Hard</ion-select-option>
+        </ion-select>
+
+        <ion-item>
+          <ion-label>Recipe Portions :</ion-label>
+        </ion-item>
+
+        <ion-input type="number" [(ngModel)]="recipe.portions" placeholder="Recipe portions number"></ion-input>
+        
+        <br>
         <ion-button (click)="updateRecipe()">Update</ion-button>
       </div>
     </ion-content>
