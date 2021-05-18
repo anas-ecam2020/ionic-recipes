@@ -48,13 +48,23 @@
           <ion-label>Recipe Favorite :</ion-label>
         </ion-item>
 
-        <ion-input type="text" [(ngModel)]="recipe.favorite" placeholder="Recipe Favorite"></ion-input>
+        <ion-select [(ngModel)]="recipe.favorite" multiple="false" cancelText="Cancel" okText="OK" placeholder="Select One">
+          <ion-select-option type="text" [value]="true">Yes</ion-select-option>
+          <ion-select-option type="text" [value]="false">No</ion-select-option>
+        </ion-select>
 
         <ion-item>
           <ion-label>Recipe Time :</ion-label>
         </ion-item>
         
-        <ion-input type="number" [(ngModel)]="recipe.time" placeholder="Recipe Preparation Time"></ion-input>
+        <ion-select [(ngModel)]="recipe.time" multiple="false" cancelText="Cancel" okText="OK" placeholder="Select Time">
+          <ion-select-option type="number" [value]="5">5 minutes</ion-select-option>
+          <ion-select-option type="number" [value]="10">10 minutes</ion-select-option>
+          <ion-select-option type="number" [value]="15">15 minutes</ion-select-option>
+          <ion-select-option type="number" [value]="20">20 minutes</ion-select-option>
+          <ion-select-option type="number" [value]="25">25 minutes</ion-select-option>
+          <ion-select-option type="number" [value]="30">30 minutes</ion-select-option>
+        </ion-select>
 
         <ion-item>
           <ion-label>Recipe Difficulty :</ion-label>
@@ -70,8 +80,13 @@
           <ion-label>Recipe Portions :</ion-label>
         </ion-item>
 
-        <ion-input type="number" [(ngModel)]="recipe.portions" placeholder="Recipe portions number"></ion-input>
-        
+        <ion-select [(ngModel)]="recipe.portions" multiple="false" cancelText="Cancel" okText="OK" placeholder="Select Portions">
+          <ion-select-option type="number" [value]="1">1 portion</ion-select-option>
+          <ion-select-option type="number" [value]="2">2 portions</ion-select-option>
+          <ion-select-option type="number" [value]="3">3 portions</ion-select-option>
+          <ion-select-option type="number" [value]="4">4 portions</ion-select-option>
+          <ion-select-option type="number" [value]="5">5 portions</ion-select-option>
+        </ion-select>        
         <br>
         <ion-button (click)="updateRecipe()">Update</ion-button>
       </div>
