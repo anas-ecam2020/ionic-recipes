@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { RestService, Recipe } from '../rest.service';
+
+
 
 @Component({
   selector: 'app-recipe-add',
@@ -7,8 +11,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeAddComponent implements OnInit {
 
-  constructor() { }
+  recipe : Recipe = {
+    id: 0,
+    category: {
+      title: ""
+    },
+    title: "",
+    content: "",
+    image: "",
+    favorite: true,
+    time: 0,
+    difficulty: "",
+    portions: 0
+};
 
-  ngOnInit() {}
+constructor(public rest: RestService, private route: ActivatedRoute, private router: Router) {}
 
+  ngOnInit(): void {}
+
+  addRecipe() {
+    this.rest.addRecipe(this.recipe).subscribe(
+      (result) => {
+        this.router.navigate(['/recipe']);
+      }
+    )
+  }
 }
