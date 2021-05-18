@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Recipe, RestService } from '../rest.service';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -7,8 +9,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecipeEditComponent implements OnInit {
 
-  constructor() { }
+  recipe: Recipe = {
+    id: 0,
+    category: {
+      title: ''
+    },
+    title: '',
+    content: '',
+    image: '',
+    favorite: true,
+    time: 0,
+    difficulty: '',
+    portions: 0
+  };
 
-  ngOnInit() {}
+  constructor(public rest: RestService, private route: ActivatedRoute, private router: Router) { }
 
+  ngOnInit(): void {
+    this.rest.getRecipe(this.route.snapshot.params.id).subscribe(
+      (data) => {
+        console.log(data);
+        data.category = { title: data.category.title };
+        delete data.createdAt;
+        delete data.comments;
+        this.recipe = data;
+        console.log(this.recipe);
+      }
+    )
+   }
+   
+   updateRecipe() {
+    this.rest.updateRecipe(this.recipe).subscribe(
+      (result) => {
+        this.router.navigate(['/recipe']);
+      },
+      (err) => {
+        console.log(err);
+      }
+    ) 
+  }
 }

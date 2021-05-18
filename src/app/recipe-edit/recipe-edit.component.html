@@ -1,3 +1,42 @@
-<p>
-  recipe-edit works!
-</p>
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Recipes
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+    <ion-content>
+      <h2>Recipe Edit</h2>
+      <div>
+        <ion-label>Recipe Name :
+          <ion-input type="text" [(ngModel)]="recipe.title" placeholder="name"></ion-input>
+        </ion-label><br>
+        <ion-label>Recipe Category :
+          <ion-input type="text" [(ngModel)]="recipe.category.title" placeholder="category"></ion-input>
+        </ion-label><br>
+        <ion-label>Recipe Content :
+          <ion-input type="text" [(ngModel)]="recipe.content" placeholder="content"></ion-input>
+        </ion-label><br>
+        <ion-label>Recipe Image :
+          <ion-input type="text" [(ngModel)]="recipe.image" placeholder="image"></ion-input>
+        </ion-label><br>
+        <ion-label>Recipe Favorite :
+          <ion-input type="text" [(ngModel)]="recipe.favorite" placeholder="favorite"></ion-input>
+        </ion-label><br>
+        <ion-label>Recipe Time :
+          <ion-input type="number" [(ngModel)]="recipe.time" placeholder="time"></ion-input>
+        </ion-label><br>
+        <ion-label>Recipe Difficulty :
+          <ion-input type="text" [(ngModel)]="recipe.difficulty" placeholder="difficulty"></ion-input>
+        </ion-label><br>
+        <ion-label>Recipe Portions :
+          <ion-input type="number" [(ngModel)]="recipe.portions" placeholder="portions"></ion-input>
+        </ion-label><br>
+        <ion-button (click)="updateRecipe()">Update</ion-button>
+      </div>
+    </ion-content>
